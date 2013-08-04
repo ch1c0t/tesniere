@@ -1,0 +1,22 @@
+script src="assets/root"
+
+.form ng-app="App" ng-controller="FormCtrl"
+  textarea{
+    autofocus
+    placeholder="Sentence"
+    ng-model="sentence.string"
+  }
+
+  input{
+    type="text"
+    placeholder="Post id in English SE"
+    ng-model="sentence.se_id"
+  }
+
+  input{
+    type="text"
+    placeholder="Amount of main clauses"
+    ng-model="sentence.mc_amount"
+  }
+
+  .button ng-click="send()" Send
