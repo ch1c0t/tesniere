@@ -7,4 +7,8 @@ class App < Sinatra::Base
   get '/' do
     slim :root
   end
+
+  get '/scalpel' do
+    slim :scalpel
+  end
 end

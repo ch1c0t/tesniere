@@ -2,6 +2,7 @@
   "name": "project_name",
   "dependencies": {
     "angular":                    "latest",
-    "bower-foundation-css":       "latest"
-    }
+    "bower-foundation-css":       "latest",
+    "angular-elastic":            "latest"
+  }
 }

@@ -1,0 +1,21 @@
+script src="assets/scalpel"
+
+div ng-app="ScalpelApp"
+  .form ng-controller="ParagraphCtrl"
+    textarea{
+      autofocus
+      msd-elastic="\n"
+      placeholder="Paragraph"
+      ng-model="paragraph.string"
+    }
+
+    .large.button.expand ng-click="segment()" Segment
+
+
+  .list ng-controller="ListCtrl" ng-show="sentences"
+    .panel ng-repeat="sentence in sentences"
+      p S: {{sentence.string}}
+      .tiny.button ng-click="save(sentence)" Save sentence
+
+    .large.button.expand ng-click="saveAll(sentences)" Save all sentences
+
