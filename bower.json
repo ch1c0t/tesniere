@@ -3,6 +3,7 @@
   "dependencies": {
     "angular":                    "latest",
     "bower-foundation-css":       "latest",
-    "angular-elastic":            "latest"
+    "angular-elastic":            "latest",
+    "bower-prelude-ls":           "latest"
   }
 }

@@ -12,8 +12,8 @@ div ng-app="ScalpelApp"
     .large.button.expand ng-click="segment()" Segment
 
 
-  .list ng-controller="ListCtrl" ng-show="sentences"
-    .panel ng-repeat="sentence in sentences"
+  .list ng-controller="ListCtrl" ng-show="model.sentences"
+    .panel ng-repeat="sentence in model.sentences"
       p S: {{sentence.string}}
       .tiny.button ng-click="save(sentence)" Save sentence
 

@@ -3,6 +3,7 @@ Pathname.glob("./resources/*/" "*.rb").each { |file| require file }
 class App < Sinatra::Base
   use PartialsResource
   use SentenceResource
+  use SentenceSegmentationResource
 
   get '/' do
     slim :root
