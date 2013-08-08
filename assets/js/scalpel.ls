@@ -41,6 +41,10 @@ controllers.ListCtrl = [
 
   (s, mf) ->
     s.model = mf.main
+
+    s.save = (sentence, index) ->
+      #af.save sentence
+      s.model.sentences.splice index, 1
 ]
 
 angular.module(\controllers, []).controller controllers
