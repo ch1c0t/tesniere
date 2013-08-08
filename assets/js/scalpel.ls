@@ -20,6 +20,9 @@ factories.AjaxFactory = [
           mf.main.sentences = map create-sentence-from, data
         .error ->
           alert "Something went wrong."
+
+    save: (sentences) ->
+      http.post('/sentence_collection/new', sentences)
 ]
 angular.module(\factories, []).factory factories
 
@@ -35,16 +38,21 @@ controllers.ParagraphCtrl = [
       af.segment-paragraph s.paragraph.string
 ]
 
-controllers.ListCtrl = [
+controllers.SentenceListCtrl = [
   '$scope'
+  'AjaxFactory'
   'ModelFactory'
 
-  (s, mf) ->
+  (s, af, mf) ->
     s.model = mf.main
 
     s.save = (sentence, index) ->
-      #af.save sentence
+      af.save [sentence]
       s.model.sentences.splice index, 1
+
+    s.save-all = (sentences) ->
+      af.save sentences
+      s.model.sentences = []
 ]
 
 angular.module(\controllers, []).controller controllers

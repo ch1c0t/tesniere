@@ -9,13 +9,12 @@ div ng-app="ScalpelApp"
       ng-model="paragraph.string"
     }
 
-    .large.button.expand ng-click="segment()" Segment
+    .expand.large.button ng-click="segment()" Segment
 
 
-  .list ng-controller="ListCtrl" ng-show="model.sentences"
+  .list ng-controller="SentenceListCtrl" ng-show="model.sentences"
     .panel ng-repeat="sentence in model.sentences"
       p S: [{{$index}}] {{sentence.string}}
       .tiny.button ng-click="save(sentence, $index)" Save sentence
 
-    .large.button.expand ng-click="saveAll(sentences)" Save all sentences
-
+    .expand.large.button ng-click="saveAll(model.sentences)" Save all sentences
