@@ -13,11 +13,7 @@ factories.AjaxFactory = [
     segment-paragraph: (string) ->
       http.post('/segment', paragraph: string)
         .success (data) ->
-          create-sentence-from = (string) ->
-            string: string
-
-          { map } = require 'prelude-ls'
-          mf.main.sentences = map create-sentence-from, data
+          mf.main.sentences = data
         .error ->
           alert "Something went wrong."
 
