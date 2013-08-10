@@ -13,4 +13,8 @@ class App < Sinatra::Base
   get '/scalpel' do
     slim :scalpel
   end
+
+  get '/settings' do
+    slim :settings
+  end
 end

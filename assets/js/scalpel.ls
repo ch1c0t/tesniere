@@ -1,8 +1,11 @@
 factories = {}
 factories.ModelFactory = [
-  ->
+  '$localStorage'
+
+  (ls) ->
     main:
       sentences: []
+      settings:  ls
 ]
 
 factories.AjaxFactory = [
@@ -11,7 +14,10 @@ factories.AjaxFactory = [
 
   (http, mf) ->
     segment-paragraph: (string) ->
-      http.post('/segment', paragraph: string)
+      params = paragraph: string
+      params{source, author} = mf.main.settings
+
+      http.post('/segment', params)
         .success (data) ->
           mf.main.sentences = data
         .error ->
@@ -52,4 +58,4 @@ controllers.SentenceListCtrl = [
 ]
 
 angular.module(\controllers, []).controller controllers
-angular.module \ScalpelApp, <[ controllers factories monospaced.elastic ]>
+angular.module \ScalpelApp, <[ controllers factories monospaced.elastic ngStorage ]>

@@ -7,7 +7,9 @@ class SentenceCollectionResource < Sinatra::Base
 
     sentences.each do |sentence|
       id = Meta.incr 'sentence-ids_counter'
-      R.hset id, 'string', sentence['string']
+      sentence.each do |key, value|
+        R.hset id, key, value
+      end
     end
   end
 end

@@ -4,6 +4,7 @@
     "angular":                    "latest",
     "bower-foundation-css":       "latest",
     "angular-elastic":            "latest",
-    "bower-prelude-ls":           "latest"
+    "bower-prelude-ls":           "latest",
+    "ngstorage":                  "latest"
   }
 }
