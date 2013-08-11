@@ -21,6 +21,13 @@ div ng-app="ScalpelApp"
           type="text"
           ng-model="sentence.predicators"
         }
+
+        input{
+          placeholder="Actant generalization"
+          type="text"
+          ng-model="sentence.generalization"
+        }
+
       .tiny.button ng-click="save(sentence, $index)" Save sentence
 
     .expand.large.button ng-click="saveAll(model.sentences)" Save all sentences
