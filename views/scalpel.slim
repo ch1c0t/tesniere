@@ -15,6 +15,12 @@ div ng-app="ScalpelApp"
   .list ng-controller="SentenceListCtrl" ng-show="model.sentences"
     .panel ng-repeat="sentence in model.sentences"
       p S: [{{$index}}] {{sentence.string}}
+      .panel
+        input{
+          placeholder="Predicator(s)"
+          type="text"
+          ng-model="sentence.predicators"
+        }
       .tiny.button ng-click="save(sentence, $index)" Save sentence
 
     .expand.large.button ng-click="saveAll(model.sentences)" Save all sentences
