@@ -38,6 +38,7 @@ controllers.ParagraphCtrl = [
     s.paragraph = {}
     s.segment = ->
       af.segment-paragraph s.paragraph.string
+      s.paragraph.string = ""
 ]
 
 controllers.SentenceListCtrl = [
