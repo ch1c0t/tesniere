@@ -8,7 +8,11 @@ class SentenceSegmentationResource < Sinatra::Base
 
     paragraph = params.delete 'paragraph'
     sentences = Scalpel.cut(paragraph).map do |string|
-      { 'string' => string }.merge params
+      blank_for_generalization = { 'generalization' => string[0..-2] }
+
+      { 'string' => string }
+        .merge params
+        .merge blank_for_generalization
     end
 
     Oj.dump sentences
