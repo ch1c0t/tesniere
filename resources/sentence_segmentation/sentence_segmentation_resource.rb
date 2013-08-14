@@ -3,7 +3,7 @@ class SentenceSegmentationResource < Sinatra::Base
 
   post '/segment' do
     params = Oj.load request.body.read
-    params = params.delete_if { |_, value| value.empty? }
+    params.delete_if { |_, value| value.empty? }
     params['paragraph_id'] = Meta.incr 'paragraph-ids_counter'
 
     paragraph = params.delete 'paragraph'
