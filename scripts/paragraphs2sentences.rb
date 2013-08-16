@@ -19,7 +19,7 @@ OptionParser.new do |op|
     opts[:to_port] = v.to_i
   end
 
-  op.on("-fdb [to_db]") do |v|
+  op.on("-tdb [to_db]") do |v|
     opts[:to_db] ||= v.to_i
   end
 end.parse!
@@ -27,7 +27,7 @@ end.parse!
 $paragraphs = Redis.new :port => opts[:from_port], :db => opts[:from_db]
 $sentences  = Redis.new :port => opts[:to_port],   :db => opts[:to_db]
 
-paragraphs_ids = paragraphs.keys
+paragraphs_ids = $paragraphs.keys
 paragraphs_ids.each do |paragraph_id|
   paragraph = $paragraphs.hget paragraph_id, 'string'
   sentences = Scalpel.cut paragraph
