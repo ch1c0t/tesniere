@@ -5,6 +5,8 @@ gem 'slim'
 gem 'redis'
 gem 'oj'
 gem 'scalpel'
+gem 'gutenberg-book', github: 'ch1c0t/gutenberg-book'
+gem 'ssearch', github: 'ch1c0t/ssearch'
 
 group :assets do
   gem 'sprockets'
