@@ -1,0 +1,14 @@
+script src="assets/search"
+
+div ng-app="SearchApp"
+  input{
+    type="search"
+    ng-controller="QueryCtrl"
+    placeholder="Collocation"
+    ng-model="collocation"
+    ng-change="find(collocation)"
+  }
+
+  .list ng-controller="ResultsCtrl"
+    .panel ng-repeat="paragraph in model.paragraphs"
+      p N[{{$index}}] {{paragraph}}

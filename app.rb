@@ -5,6 +5,7 @@ class App < Sinatra::Base
   use SentenceResource
   use SentenceSegmentationResource
   use SentenceCollectionResource
+  use ParagraphCollectionResource
 
   get '/' do
     slim :root
@@ -16,5 +17,9 @@ class App < Sinatra::Base
 
   get '/settings' do
     slim :settings
+  end
+
+  get '/search' do
+    slim :search
   end
 end
