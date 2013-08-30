@@ -7,5 +7,4 @@ module Tesniere
 
   port = 7777
   Meta  = Redis.new :port => port
-  Books = Redis.new :port => port, :db => 1
 end

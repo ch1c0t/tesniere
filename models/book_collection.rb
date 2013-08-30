@@ -1,3 +1,5 @@
+require 'redis'
+
 class BookCollection
   attr_reader :meta, :books, :paragraphs, :sentences
 
