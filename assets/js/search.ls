@@ -4,7 +4,7 @@ factories.ModelFactory = [
 
   (ls) ->
     main:
-      paragraphs: []
+      sentences:  []
       settings:   ls
 ]
 
@@ -17,9 +17,9 @@ factories.AjaxFactory = [
       query = collocation: collocation
       query{store, ssearch} = mf.main.settings
 
-      http.post('/paragraph_collection', query)
+      http.post('/sentence_collection', query)
         .success (data) ->
-          mf.main.paragraphs = data
+          mf.main.sentences = data
         .error ->
           alert "Something went wrong."
 ]
@@ -33,7 +33,7 @@ controllers.QueryCtrl = [
 
   (s, af) ->
     s.find = (collocation) ->
-      af.find collocation if /\w+\s\w./ is collocation
+      af.find collocation
 ]
 
 controllers.ResultsCtrl = [

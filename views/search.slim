@@ -11,5 +11,5 @@ div ng-app="SearchApp"
   }
 
   .list ng-controller="ResultsCtrl"
-    .panel ng-repeat="paragraph in model.paragraphs"
-      p N[{{$index}}] {{paragraph}}
+    .panel ng-repeat="sentence in model.sentences"
+      p N[{{$index}}] {{sentence}}
