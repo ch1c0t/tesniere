@@ -9,7 +9,7 @@ while gets
     port, directory = $_.split ':'
     book_collection = BookCollection.new :port => port
 
-    Pathname.glob("#{directory.strip}/*.txt").each do |file|
+    Pathname.glob("#{directory.strip}/*.utf-8").each do |file|
       book = Gutenberg::Book.new file
       book_id = book_collection.meta.incr 'book_counter'
 
