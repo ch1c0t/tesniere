@@ -7,7 +7,7 @@ while gets
     from, to = $_.split ':'
 
     book_collection = BookCollection.new :port => from
-    ssearch = Ssearch.new :redis_port => to
+    ssearch = Ssearch.new :port => to
 
     sentence_amount = book_collection.meta.get 'sentence_counter'
     1.upto(sentence_amount.to_i) do |id|

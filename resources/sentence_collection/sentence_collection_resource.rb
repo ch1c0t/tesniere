@@ -26,7 +26,7 @@ class SentenceCollectionResource < Sinatra::Base
     query = Oj.load request.body.read
 
     store   = BookCollection.new :port => query['store']
-    ssearch = Ssearch.new :redis_port => query['ssearch']
+    ssearch = Ssearch.new :port => query['ssearch']
 
     ids = ssearch.find query['collocation']
     sentences = ids.take(20).map { |id| store.sentences.hget id, 'string' }
