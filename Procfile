@@ -1,4 +1,4 @@
 web:      bundle exec rackup -p $PORT
-meta:     redis-server ./redis-conf/redis-tesniere-meta.conf
-store:    redis-server ./redis-conf/redis-tesniere-store.conf
-ssearch:  redis-server ./redis-conf/redis-tesniere-ssearch.conf
+meta:     redis-server --dir ~/.tesniere/db/ --dbfilename meta.rdb --port 7777
+store:    redis-server --dir ~/.tesniere/db/ --dbfilename store.rdb --port 7778
+ssearch:  redis-server --dir ~/.tesniere/db/ --dbfilename ssearch.rdb --port 7779
