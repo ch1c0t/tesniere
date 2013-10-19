@@ -1,14 +1,18 @@
 script src="assets/search"
 
 div ng-app="SearchApp"
-  input{
-    type="search"
-    autofocus
-    ng-controller="QueryCtrl"
-    placeholder="Collocation"
-    ng-model="collocation"
-    ng-change="find(collocation)"
-  }
+  div ng-controller="QueryCtrl"
+    p \{{model.autocompletions}}
+    input{
+      type="search"
+      autofocus
+      placeholder="Collocation"
+      ng-model="collocation"
+      ng-change="find(collocation)"
+      list="autocompletions"
+    }
+    datalist#autocompletions
+      option ng-repeat="autocompletion in model.autocompletions" value="{{autocompletion}}"
 
   .list ng-controller="ResultsCtrl"
     .panel ng-repeat="sentence in model.sentences"

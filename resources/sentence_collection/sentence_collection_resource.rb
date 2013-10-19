@@ -29,7 +29,7 @@ class SentenceCollectionResource < Sinatra::Base
     ssearch = Ssearch.new :port => query['ssearch']
 
     ids = ssearch.find query['collocation']
-    sentences = ids.take(20).map { |id| store.sentences.hget id, 'string' }
+    sentences = ids.take(16).map { |id| store.sentences.hget id, 'string' }
 
     Oj.dump sentences
   end

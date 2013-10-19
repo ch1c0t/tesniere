@@ -4,8 +4,9 @@ factories.ModelFactory = [
 
   (ls) ->
     main:
-      sentences:  []
-      settings:   ls
+      sentences:       []
+      settings:        ls
+      autocompletions: []
 ]
 
 factories.AjaxFactory = [
@@ -22,6 +23,14 @@ factories.AjaxFactory = [
           mf.main.sentences = data
         .error ->
           alert "Something went wrong."
+
+    autocomplete: (collocation) ->
+      query = collocation: collocation
+      query{ssearch} = mf.main.settings
+
+      http.post('/autocomplete', query)
+        .success (data) ->
+          mf.main.autocompletions = data
 ]
 angular.module(\factories, []).factory factories
 
@@ -30,9 +39,13 @@ controllers = {}
 controllers.QueryCtrl = [
   '$scope'
   'AjaxFactory'
+  'ModelFactory'
 
-  (s, af) ->
+  (s, af, mf) ->
+    s.model = mf.main
+
     s.find = (collocation) ->
+      af.autocomplete collocation
       af.find collocation
 ]
 

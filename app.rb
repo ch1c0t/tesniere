@@ -6,6 +6,7 @@ class App < Sinatra::Base
   use SentenceResource
   use SentenceSegmentationResource
   use SentenceCollectionResource
+  use AutocompleteResource
 
   get '/' do
     slim :root
